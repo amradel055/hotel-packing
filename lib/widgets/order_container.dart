@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
@@ -58,176 +59,181 @@ class _OrderContainerState extends State<OrderContainer> {
     return
       Container(
       height: size.height*.9,
-      child: ListView.builder(   itemCount:OrdersGroups.length,
-        itemBuilder:(context,index){
+      child: RefreshIndicator(
+        onRefresh:  () => context.read<HomescreenScreenProvider>().getordersScreenGroups(232) ,
+        child: ListView.builder(
+          itemCount:OrdersGroups.length,
+          dragStartBehavior: DragStartBehavior.start,
 
-          return Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: Container(
-              width: widget.size.width *0.9,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(widget.size.width *0.02),
-                color: item,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: widget.size.width *0.5,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text("رقم الفاتوره :" , style: titleTextStyle(widget.size),) ,
-                          Text(OrdersGroups[index].serial!.toString(), style: subTitleTextStyle(widget.size),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: widget.size.width ,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text("وقت الدخول :" , style: titleTextStyle(widget.size),) ,
-                          Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].date!), style: subTitleTextStyle(widget.size),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: widget.size.width ,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text("وقت التسليم :" , style: titleTextStyle(widget.size),) ,
-                          Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].endDateDelivery!), style: subTitleTextStyle(widget.size),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: widget.size.width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text("وقت التجهيز :" , style: titleTextStyle(widget.size),) ,
-                          Text(OrdersGroups[index].waitingTimePacking!.toString(), style: subTitleTextStyle(widget.size),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: widget.size.width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          TextButton(onPressed: () {
-                            onEnd();
-                          }, child: Text("stop")),
-
-                CountdownTimer(
-                endTime: OrdersGroups[index].endDateDelivery!.difference(OrdersGroups[index].date!).inSeconds+OrdersGroups[index].waitingTimePacking!,
-                onEnd: onEnd,
-              ),
-                          // Text("الحالة :" , style: titleTextStyle(widget.size),) ,
-                          // Text("OrdersGroups[index].status!.toString()", style: subTitleTextStyle(widget.size),)
-                        ],
-                      ),
-                    ),
-                    widget.showDetails ? Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        width: widget.size.width *0.8,
-                        color: Colors.white70,
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: SizedBox(
-                                width: widget.size.width *0.6,
-                                child: Row(
-                                  children: [
-                                    Text(" الصنف : " , style: titleTextStyle(widget.size),),
-                                    for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
-                                      Text(OrdersGroups[index].detailDataAPiDtoList![i].itemName! , style: subTitleTextStyle(widget.size),),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: SizedBox(
-                                width: widget.size.width *0.6,
-
-                                child: Row(
-                                  children: [
-                                    Text(" الكمية : " , style: titleTextStyle(widget.size),),
-                                    for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
-                                    Text(OrdersGroups[index].detailDataAPiDtoList![i].quantity!.toString() , style: subTitleTextStyle(widget.size),),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: SizedBox(
-                                width: widget.size.width *0.6,
-
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(" الاضافات : " , style: titleTextStyle(widget.size),),
-                                    for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
-                                      for(int h =0 ;h<OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList!.length;h++ )
-
-                                        Text( OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList == []?"لا اضافات" :OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList![h].name! , style: subTitleTextStyle(widget.size),),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ) : const SizedBox(),
-                    Padding (
-                      padding: const EdgeInsets.all(4.0),
-                      child: SizedBox(
-                        width: widget.size.width *0.8,
+          itemBuilder:(context,index){
+            return Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                width: widget.size.width *0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(widget.size.width *0.02),
+                  color: item,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: widget.size.width *0.5,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            TextButton(
-                                onPressed: (){
-                                  setState(() {
-                                    widget.showDetails = !widget.showDetails ;
-                                  });
-                                },
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(widget.showDetails ? Colors.red : Colors.blue)
-                                ),
-                                child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
-                            TextButton(
-                                onPressed: (){
-                                  context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,1,context);
-                                  context.read<HomescreenScreenProvider>().getordersScreenGroups(232);
-                                  OrdersGroups = context.read<HomescreenScreenProvider>().Orderslist ;
-
-                                  setState(() {
-
-                                  });
-                                },
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(Colors.blue)
-                                ),
-                                child: Text("تسليم" , style: titleTextStyle(widget.size),)),
+                            Text("رقم الفاتوره :" , style: titleTextStyle(widget.size),) ,
+                            Text(OrdersGroups[index].serial!.toString(), style: subTitleTextStyle(widget.size),)
                           ],
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: widget.size.width ,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("وقت الدخول :" , style: titleTextStyle(widget.size),) ,
+                            Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].date!), style: subTitleTextStyle(widget.size),)
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: widget.size.width ,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("وقت التسليم :" , style: titleTextStyle(widget.size),) ,
+                            Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].endDateDelivery!), style: subTitleTextStyle(widget.size),)
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: widget.size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("وقت التجهيز :" , style: titleTextStyle(widget.size),) ,
+                            Text(OrdersGroups[index].waitingTimePacking!.toString(), style: subTitleTextStyle(widget.size),)
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: widget.size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            TextButton(onPressed: () {
+                              onEnd();
+                            }, child: Text("stop")),
+
+                  CountdownTimer(
+                  endTime: OrdersGroups[index].endDateDelivery!.difference(OrdersGroups[index].date!).inSeconds+OrdersGroups[index].waitingTimePacking!,
+                  onEnd: onEnd,
+                ),
+                            // Text("الحالة :" , style: titleTextStyle(widget.size),) ,
+                            // Text("OrdersGroups[index].status!.toString()", style: subTitleTextStyle(widget.size),)
+                          ],
+                        ),
+                      ),
+                      widget.showDetails ? Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: widget.size.width *0.8,
+                          color: Colors.white70,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: SizedBox(
+                                  width: widget.size.width *0.6,
+                                  child: Row(
+                                    children: [
+                                      Text(" الصنف : " , style: titleTextStyle(widget.size),),
+                                      for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
+                                        Text(OrdersGroups[index].detailDataAPiDtoList![i].itemName! , style: subTitleTextStyle(widget.size),),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: SizedBox(
+                                  width: widget.size.width *0.6,
+
+                                  child: Row(
+                                    children: [
+                                      Text(" الكمية : " , style: titleTextStyle(widget.size),),
+                                      for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
+                                      Text(OrdersGroups[index].detailDataAPiDtoList![i].quantity!.toString() , style: subTitleTextStyle(widget.size),),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: SizedBox(
+                                  width: widget.size.width *0.6,
+
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(" الاضافات : " , style: titleTextStyle(widget.size),),
+                                      for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
+                                        for(int h =0 ;h<OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList!.length;h++ )
+
+                                          Text( OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList == []?"لا اضافات" :OrdersGroups[index].detailDataAPiDtoList![i].addtionsDtoList![h].name! , style: subTitleTextStyle(widget.size),),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ) : const SizedBox(),
+                      Padding (
+                        padding: const EdgeInsets.all(4.0),
+                        child: SizedBox(
+                          width: widget.size.width *0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              TextButton(
+                                  onPressed: (){
+                                    setState(() {
+                                      widget.showDetails = !widget.showDetails ;
+                                    });
+                                  },
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.all(widget.showDetails ? Colors.red : Colors.blue)
+                                  ),
+                                  child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
+                              TextButton(
+                                  onPressed: (){
+                                    context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,1,context);
+                                    context.read<HomescreenScreenProvider>().getordersScreenGroups(232);
+                                    OrdersGroups = context.read<HomescreenScreenProvider>().Orderslist ;
+
+                                    setState(() {
+
+                                    });
+                                  },
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.all(Colors.blue)
+                                  ),
+                                  child: Text("تسليم" , style: titleTextStyle(widget.size),)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
+            );
 
-        },scrollDirection:Axis.vertical,),
+          },scrollDirection:Axis.vertical,),
+      ),
     );
 
 

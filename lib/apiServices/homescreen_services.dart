@@ -25,16 +25,14 @@ class HomescreenServices {
       print(e);
     }
   }
+
   Future save(int id,int packingBy) async{
-    Uri uri = Uri.parse(url + "distribution/goDistribution");
+    Uri uri = Uri.parse(url + "collect/updatePackingOrder");
 
 
     var body = jsonEncode({
       "id" : id ,
       "packingBy":packingBy
-
-
-
     });
     // print(body);
     Map<String,String> headers = {
@@ -51,6 +49,7 @@ class HomescreenServices {
       print(e);
     }
   }
+
   Future lateorderspacking(int branchId) async{
 
     Uri uri = Uri.parse(url + "delivery/latePackingOrder") ;

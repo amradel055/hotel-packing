@@ -1,5 +1,5 @@
 
- const url = "http://192.168.1.22:9090/";
+ const url = "http://192.168.1.5:8070/hotelApp/";
 const imageURL = "/restaurantItem/itemImage/" ;
 // cloud
 // const url = "http://188.166.92.84/" ;
