@@ -28,7 +28,6 @@ class UserModel {
     this.active,
     this.inventoryId ,
     this.bankId,
-    this.userScreens
   });
 
   int? id;

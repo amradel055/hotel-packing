@@ -37,6 +37,7 @@ dependencies:
   http:
   provider:
   flutter_countdown_timer:
+  shared_preferences:
   intl: ^0.17.0
 
 dev_dependencies:

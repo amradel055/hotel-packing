@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_packaging/providers/auth_provider.dart';
 import 'package:hotel_packaging/providers/homescreen_provider.dart';
 import 'package:hotel_packaging/screens/Login.dart';
 import 'package:hotel_packaging/screens/home_screen.dart';
@@ -11,6 +12,7 @@ void main() async{
       MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_) => HomescreenScreenProvider()),
+            ChangeNotifierProvider(create: (_) => AuthProvider()),
 
 
           ],

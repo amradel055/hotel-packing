@@ -3,6 +3,8 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:hotel_packaging/const/text_styles.dart';
 
 import 'package:hotel_packaging/models/orders_model.dart';
+import 'package:hotel_packaging/models/user_model.dart';
+import 'package:hotel_packaging/providers/auth_provider.dart';
 import 'package:hotel_packaging/providers/homescreen_provider.dart';
 import 'package:hotel_packaging/widgets/order_container.dart';
 import 'package:intl/intl.dart';
@@ -25,8 +27,10 @@ class _LateOrdersForPackingState extends State<LateOrdersForPacking> {
   List<OrdersModel> lateOrdersPacking =[];
   bool loading = true ;
   Color item = Colors.grey;
+  UserModel? user ;
   @override
   void initState() {
+    user =  context.read<AuthProvider>().user ;
     context.read<HomescreenScreenProvider>().findLateOrdersPacking().then((value){
       lateOrdersPacking = context.read<HomescreenScreenProvider>().lateOrderspacking ;
       loading = context.read<HomescreenScreenProvider>().latepackingLoading ;
@@ -196,8 +200,8 @@ class _LateOrdersForPackingState extends State<LateOrdersForPacking> {
                                   child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
                               TextButton(
                                   onPressed: (){
-                                    context.read<HomescreenScreenProvider>().save(lateOrdersPacking[index].id,1,context);
-                                    context.read<HomescreenScreenProvider>().getordersScreenGroups(232);
+                                    context.read<HomescreenScreenProvider>().save(lateOrdersPacking[index].id , user?.id ?? -1,context);
+                                    context.read<HomescreenScreenProvider>().getordersScreenGroups(user?.branchId ?? -1);
                                     lateOrdersPacking = context.read<HomescreenScreenProvider>().Orderslist ;
 
                                     setState(() {

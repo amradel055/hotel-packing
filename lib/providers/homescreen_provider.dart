@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_packaging/apiServices/homescreen_services.dart';
 import 'package:hotel_packaging/models/orders_model.dart';
+import 'package:hotel_packaging/providers/auth_provider.dart';
 
 
 class HomescreenScreenProvider with ChangeNotifier {
@@ -12,8 +13,6 @@ class HomescreenScreenProvider with ChangeNotifier {
   List<OrdersModel> Orderslist = [] ;
   List<OrdersModel> lateOrderspacking = [] ;
   bool latepackingLoading = true ;
-
-
 
   Future getordersScreenGroups(branchId) async{
     await HomescreenServices().getOrdersGroups(branchId).then((value){
