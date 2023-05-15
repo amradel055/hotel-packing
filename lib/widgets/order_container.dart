@@ -84,7 +84,7 @@ class _OrderContainerState extends State<OrderContainer> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text("رقم الفاتوره :" , style: titleTextStyle(widget.size),) ,
-                            Text(OrdersGroups[index].serial!.toString(), style: subTitleTextStyle(widget.size),)
+                            Text(OrdersGroups[index].serial==null?"":(OrdersGroups[index].serial!.toString()), style: subTitleTextStyle(widget.size),)
                           ],
                         ),
                       ),
@@ -94,7 +94,7 @@ class _OrderContainerState extends State<OrderContainer> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text("وقت الدخول :" , style: titleTextStyle(widget.size),) ,
-                            Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].date!), style: subTitleTextStyle(widget.size),)
+                            Text(OrdersGroups[index].date!= null ? DateFormat("dd-MM-yyy").format(OrdersGroups[index].date!) : "", style: subTitleTextStyle(widget.size),)
                           ],
                         ),
                       ),
@@ -104,7 +104,7 @@ class _OrderContainerState extends State<OrderContainer> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text("وقت التسليم :" , style: titleTextStyle(widget.size),) ,
-                            Text(DateFormat("dd-MM-yyy").format(OrdersGroups[index].endDateDelivery!), style: subTitleTextStyle(widget.size),)
+                            Text(OrdersGroups[index].endDateDelivery==null?"":DateFormat("dd-MM-yyy").format(OrdersGroups[index].endDateDelivery!), style: subTitleTextStyle(widget.size),)
                           ],
                         ),
                       ),
@@ -114,7 +114,7 @@ class _OrderContainerState extends State<OrderContainer> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text("وقت التجهيز :" , style: titleTextStyle(widget.size),) ,
-                            Text(OrdersGroups[index].waitingTimePacking!.toString(), style: subTitleTextStyle(widget.size),)
+                            Text(OrdersGroups[index].waitingTimePacking==null?"":OrdersGroups[index].waitingTimePacking!.toString(), style: subTitleTextStyle(widget.size),)
                           ],
                         ),
                       ),
@@ -128,7 +128,7 @@ class _OrderContainerState extends State<OrderContainer> {
                             }, child: Text("stop")),
 
                   CountdownTimer(
-                  endTime: OrdersGroups[index].endDateDelivery!.difference(OrdersGroups[index].date!).inSeconds+OrdersGroups[index].waitingTimePacking!,
+                  endTime: OrdersGroups[index].endDateDelivery?.difference(OrdersGroups[index].date!).inSeconds ?? 0+(OrdersGroups[index].waitingTimePacking ?? 0),
                   onEnd: onEnd,
                 ),
                             // Text("الحالة :" , style: titleTextStyle(widget.size),) ,
@@ -150,7 +150,7 @@ class _OrderContainerState extends State<OrderContainer> {
                                   child: Row(
                                     children: [
                                       Text(" الصنف : " , style: titleTextStyle(widget.size),),
-                                      for(int i =0 ;i<OrdersGroups[index].detailDataAPiDtoList!.length;i++ )
+                                      for(int i =0 ;i<(OrdersGroups[index].detailDataAPiDtoList?.length ?? 0);i++ )
                                         Text(OrdersGroups[index].detailDataAPiDtoList![i].itemName! , style: subTitleTextStyle(widget.size),),
                                     ],
                                   ),

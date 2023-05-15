@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class HomescreenServices {
 
   Future getOrdersGroups(int branchId) async {
-    Uri uri = Uri.parse(url + "distribution/distributionList") ;
+    Uri uri = Uri.parse(url + "collect/collectList") ;
     var body = jsonEncode({
       "branchId" : branchId
     });
@@ -52,7 +52,7 @@ class HomescreenServices {
 
   Future lateorderspacking(int branchId) async{
 
-    Uri uri = Uri.parse(url + "delivery/latePackingOrder") ;
+    Uri uri = Uri.parse(url + "collect/latePackingOrder") ;
     var body = jsonEncode({
       "branchId" : branchId ,
     });
