@@ -4,6 +4,7 @@ import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:hotel_packaging/const/text_styles.dart';
 import 'package:hotel_packaging/models/orders_model.dart';
+import 'package:hotel_packaging/providers/auth_provider.dart';
 import 'package:hotel_packaging/providers/homescreen_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/src/provider.dart';
@@ -28,7 +29,7 @@ class _OrderContainerState extends State<OrderContainer> {
 
   @override
   void initState() {
-    context.read<HomescreenScreenProvider>().getordersScreenGroups(232).then((value){
+    context.read<HomescreenScreenProvider>().getordersScreenGroups(context.read<AuthProvider>().user!.branchId).then((value){
       OrdersGroups = context.read<HomescreenScreenProvider>().Orderslist ;
       Loading = context.read<HomescreenScreenProvider>().loading ;
     });
@@ -60,7 +61,7 @@ class _OrderContainerState extends State<OrderContainer> {
       Container(
       height: size.height*.9,
       child: RefreshIndicator(
-        onRefresh:  () => context.read<HomescreenScreenProvider>().getordersScreenGroups(232) ,
+        onRefresh:  () => context.read<HomescreenScreenProvider>().getordersScreenGroups(context.read<AuthProvider>().user!.branchId) ,
         child: ListView.builder(
           itemCount:OrdersGroups.length,
           dragStartBehavior: DragStartBehavior.start,
@@ -210,8 +211,8 @@ class _OrderContainerState extends State<OrderContainer> {
                                   child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
                               TextButton(
                                   onPressed: (){
-                                    context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,1,context);
-                                    context.read<HomescreenScreenProvider>().getordersScreenGroups(232);
+                                    context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,context.read<AuthProvider>().user!.id,context);
+                                    context.read<HomescreenScreenProvider>().getordersScreenGroups(context.read<AuthProvider>().user!.branchId);
                                     OrdersGroups = context.read<HomescreenScreenProvider>().Orderslist ;
 
                                     setState(() {

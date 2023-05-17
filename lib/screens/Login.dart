@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_packaging/const/colors.dart';
 import 'package:hotel_packaging/const/text_styles.dart';
+import 'package:hotel_packaging/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -115,6 +117,7 @@ class _loginState extends State<login> {
                             onPressed: () {
 
 
+                              context.read<AuthProvider>().signIn(emailController.text, passwordController.text, context);
 
                             },
                             child: const Text(

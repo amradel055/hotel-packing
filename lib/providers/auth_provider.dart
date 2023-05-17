@@ -22,12 +22,13 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
       await AuthServices().signIn(userCode, pass).then((value){
         if(value != null ){
-          if(value['msg'] == null){
+          if(value['success']){
             //logged in
             user = UserModel.fromJson(value);
             saveUserData(user!);
             loading = false ;
             notifyListeners();
+
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const  HomeScreen() ));
             Helper().showSnackBar(context,"Logged in Successfully" );
           }else {

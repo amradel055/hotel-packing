@@ -15,7 +15,7 @@ class HomescreenScreenProvider with ChangeNotifier {
   bool latepackingLoading = true ;
 
   Future getordersScreenGroups(branchId) async{
-    await HomescreenServices().getOrdersGroups(branchId).then((value){
+    await HomescreenServices().getOrdersGroups(branchId ?? 232).then((value){
       if(value != null){
         Orderslist = List<OrdersModel>.from(value.map((e) => OrdersModel.fromJson(e)));
         loading = false ;
@@ -43,9 +43,9 @@ class HomescreenScreenProvider with ChangeNotifier {
     }
     );
   }
-  Future findLateOrdersPacking () async {
+  Future findLateOrdersPacking (branchId) async {
     latepackingLoading = true ;
-    await HomescreenServices().lateorderspacking(232)
+    await HomescreenServices().lateorderspacking(branchId)
         .then((res){
       if(res != null){
         lateOrderspacking = List<OrdersModel>.from(res.map((e) => OrdersModel.fromJson(e)));

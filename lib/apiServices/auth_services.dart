@@ -37,9 +37,9 @@ class AuthServices {
 
 
   Future signIn(userCode,pass) async{
-    Uri uri = Uri.parse("${url}auth/loginUser") ;
+    Uri uri = Uri.parse("${url}auth/loginChef") ;
     var body = jsonEncode({
-      "userCode" : userCode ,
+      "userName" : userCode ,
       "password" : pass
     });
 
