@@ -210,7 +210,7 @@ class _OrderContainerState extends State<OrderContainer> {
                                   child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
                               TextButton(
                                   onPressed: (){
-                                    context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,context.read<AuthProvider>().user!.id,context);
+                                    context.read<HomescreenScreenProvider>().save(OrdersGroups[index].id,context.read<AuthProvider>().user!.id,OrdersGroups[index].customerId ?? -1 ,context);
                                     context.read<HomescreenScreenProvider>().getordersScreenGroups(context.read<AuthProvider>().user!.branchId);
                                     OrdersGroups = context.read<HomescreenScreenProvider>().Orderslist ;
 

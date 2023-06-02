@@ -1,0 +1,335 @@
+{
+  "project_info": {
+    "project_number": "636909098075",
+    "firebase_url": "https://easyhotel-76224-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "easyhotel-76224",
+    "storage_bucket": "easyhotel-76224.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:26a05c9f82ab2f369d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:dffabb6cf8c9c6a99d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel.cars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:7547f5a5c9270bba9d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel.halls"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:32dc720ac5c267a29d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel.houseKeeping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:fe148995dca7e7069d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel.polman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:ac3d2f3b3b4c88cc9d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.easy_hotel.spa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:07e44ed19d2076f19d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.hotel.hotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:03a436d45d6267319d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.hotelDelivery.hotel_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636909098075:android:a43bb2d1355ec7729d5b7e",
+        "android_client_info": {
+          "package_name": "com.igma.hotelPackaging.hotel_packaging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBEab0jI1gdFQfH_pHyQO6PwWjkyl32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636909098075-hco2kuo3c242149b8o36ftb5aerl5h4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "636909098075-7c6oki4uvvlsodv99okt2b43vtsjf85q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.restaurantAppDesktop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

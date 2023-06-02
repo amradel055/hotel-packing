@@ -3,6 +3,10 @@ import 'package:hotel_packaging/apiServices/homescreen_services.dart';
 import 'package:hotel_packaging/models/orders_model.dart';
 import 'package:hotel_packaging/providers/auth_provider.dart';
 
+import '../apiServices/notification_services.dart';
+import '../const/strings.dart';
+import '../models/send_fcm_request.dart';
+
 class HomescreenScreenProvider with ChangeNotifier {
   bool loading = true;
 
@@ -11,6 +15,7 @@ class HomescreenScreenProvider with ChangeNotifier {
   List<OrdersModel> lateOrderspacking = [];
 
   bool latepackingLoading = true;
+
 
   Future getordersScreenGroups(branchId) async {
     await HomescreenServices().getOrdersGroups(branchId ?? 232).then((value) {
@@ -25,12 +30,12 @@ class HomescreenScreenProvider with ChangeNotifier {
     });
   }
 
-  Future save(int? id, int? packingBy, BuildContext context) async {
+  Future save(int? id, int? packingBy, int customerId , BuildContext context) async {
     await HomescreenServices().save(id!, packingBy!).then((value) {
       if (value == null) {
         id = id;
         packingBy = packingBy;
-
+        sendNotification(customerId);
         notifyListeners();
       } else {
         // error message
@@ -64,4 +69,16 @@ class HomescreenScreenProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+
+  sendNotification(int customerId)async{
+    final request = SendFcmRequest(
+      title: "Easy Hotels",
+      body: orderFinished,
+      tobic: "${customer}_customerId"
+    );
+    await NotificationServices().sendNotification(request);
+  }
+
+
 }

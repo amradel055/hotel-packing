@@ -39,6 +39,9 @@ dependencies:
   flutter_countdown_timer:
   shared_preferences:
   intl: ^0.17.0
+  firebase_messaging:
+  firebase_core:
+  flutter_local_notifications:
 
 dev_dependencies:
   flutter_test:

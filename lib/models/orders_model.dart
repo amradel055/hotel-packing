@@ -19,10 +19,12 @@ class OrdersModel {
     this.packingDate,
     this.status,
     this.detailDataAPiDtoList,
+    this.customerId
   });
 
   int? id;
   int ?serial;
+  int ?customerId;
   DateTime? date;
   int ?waitingTimePacking;
   int ?waitingTimeDelivery;
@@ -52,6 +54,7 @@ class OrdersModel {
     packingBy: json["packingBy"] == null ? null : json["packingBy"],
     packingDate: json["packingDate"] == null ? null : DateTime.parse(json["packingDate"]),
     status: json["status"],
+    customerId: json["customerId"],
     detailDataAPiDtoList: json["detailDataAPiDTOList"] == null ? null : List<DetailDataAPiDtoList>.from(json["detailDataAPiDTOList"].map((x) => DetailDataAPiDtoList.fromJson(x))),
   );
 

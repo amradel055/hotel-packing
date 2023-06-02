@@ -1,11 +1,14 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hotel_packaging/const/text_styles.dart';
 import 'package:hotel_packaging/models/orders_model.dart';
 import 'package:hotel_packaging/providers/homescreen_provider.dart';
 import 'package:hotel_packaging/screens/allpacking.dart';
 import 'package:hotel_packaging/widgets/order_container.dart';
-import 'package:provider/src/provider.dart';
+import 'package:provider/provider.dart';
 
+import '../main.dart';
 import 'late_orders.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen( {Key? key , required  }) : super(key: key);
@@ -14,6 +17,54 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+
+    firebaseMessaging
+        .subscribeToTopic("packing");
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      RemoteMessage? initialMessage =
+      await FirebaseMessaging.instance.getInitialMessage();
+    });
+    var initialzationSettingsAndroid =
+    const AndroidInitializationSettings('@mipmap/ic_launcher');
+    var initializationSettings =
+    InitializationSettings(android: initialzationSettingsAndroid);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification!.android;
+      if (notification != null && android != null) {
+        flutterLocalNotificationsPlugin.show(
+            notification.hashCode,
+            notification.title,
+            notification.body,
+            NotificationDetails(
+              android: AndroidNotificationDetails(
+                channel.id,
+                channel.name,
+                channelDescription: channel.description,
+                icon: android.smallIcon,
+                importance: Importance.max,
+                priority: Priority.max,
+                playSound: true,
+              ),
+            ));
+
+        FirebaseMessaging.onMessageOpenedApp.listen((event) {
+          print("sdsd");
+        });
+      }
+    });
+  }
+
+
   int _index=1;
 
 

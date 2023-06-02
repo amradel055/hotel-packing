@@ -200,7 +200,7 @@ class _LateOrdersForPackingState extends State<LateOrdersForPacking> {
                                   child: Text(widget.showDetails ?"اخفاء"   :"اظهار" , style: titleTextStyle(widget.size),)),
                               TextButton(
                                   onPressed: (){
-                                    context.read<HomescreenScreenProvider>().save(lateOrdersPacking[index].id , user?.id ?? -1,context);
+                                    context.read<HomescreenScreenProvider>().save(lateOrdersPacking[index].id , user?.id ?? -1 ,lateOrdersPacking[index].customerId ?? -1 ,context);
                                     context.read<HomescreenScreenProvider>().getordersScreenGroups(user?.branchId ?? -1);
                                     lateOrdersPacking = context.read<HomescreenScreenProvider>().Orderslist ;
 
