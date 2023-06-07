@@ -22,7 +22,7 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
       await AuthServices().signIn(userCode, pass).then((value){
         if(value != null ){
-          if(value['success']){
+          // if(value['success']){
             //logged in
             user = UserModel.fromJson(value);
             saveUserData(user!);
@@ -36,7 +36,6 @@ class AuthProvider with ChangeNotifier {
             loading = false ;
             notifyListeners();
           }
-        }
       });
     loading = false ;
     notifyListeners();

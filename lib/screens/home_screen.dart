@@ -139,14 +139,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                       width: size.width,
-                      height: size.height * 0.55 ,
-                      child : pages[_index] )
-
-
-
-
-
-                ],)
+                      height: size.height * 0.7 ,
+                      child : pages[_index] )],)
             )
 
 
